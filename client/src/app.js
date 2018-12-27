@@ -107,6 +107,9 @@ const renderGrid = function() {
 
 const eachGeneration = function (grid) {
   grid = updateGrid(grid);
+  generation += 1;
+  const generationDiv = document.querySelector('#generations');
+  generationDiv.innerHTML = `${generation} generations`;
   return grid;
 }
 

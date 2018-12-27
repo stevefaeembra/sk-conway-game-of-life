@@ -6,7 +6,7 @@
 
 html {
   font-size: 16px;
-  background-color: wheat;
+  background-color: white;
 }
 
 body {
@@ -22,7 +22,7 @@ body {
 }
 
 .alive {
-  background-color: black;
+  background-color: red;
 }
 
 .dead {
