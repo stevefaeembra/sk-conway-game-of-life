@@ -38,10 +38,11 @@ const randomizeGrid = function() {
   }
 };
 
-const updateGrid = function() {
+const updateGrid = function(oldGrid) {
 
   // apply game rules. We do this into a clone of the previous state of the world
 
+  let grid = oldGrid.slice(0);
   let newGrid = grid.slice(0); // clone
 
   for (var row=0; row<100; row ++) {
@@ -75,7 +76,7 @@ const updateGrid = function() {
 
     }
   }
-  grid = newGrid;
+  return newGrid;
 }
 
 const renderGrid = function() {
@@ -86,7 +87,7 @@ const renderGrid = function() {
     for (var row=0; row<100; row ++) {
       for (var col=0; col<100; col++) {
         const index = (row*100)+col;
-        const div = document.querySelector(`.cell_${index+1}`);
+        const div = document.querySelector(`#cell_${index+1}`);
         if (grid[index]===0) {
           div.className = 'dead';
         } else {
@@ -99,11 +100,18 @@ const renderGrid = function() {
 
 }
 
+const eachGeneration = function (grid) {
+  console.log("In eachGeneration()");
+  grid = updateGrid(grid);
+  return grid;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM has loaded");
   randomizeGrid();
-  updateGrid();
-  renderGrid().then((done) => {
-    console.log("Grid refreshed!");
-  });
+  setInterval(function() {
+    console.log("New generarion");
+    grid = eachGeneration(grid);
+    renderGrid();
+  },2000);
 });
