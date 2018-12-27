@@ -113,5 +113,5 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("New generarion");
     grid = eachGeneration(grid);
     renderGrid();
-  },2000);
+  },500);
 });

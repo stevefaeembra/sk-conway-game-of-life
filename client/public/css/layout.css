@@ -13,8 +13,6 @@ html {
   display: grid;
   grid-template-columns: repeat(100,4px);
   grid-template-rows: repeat(100,4px);
-  grid-row-gap: 1px;
-  grid-column-gap: 1px;
 }
 
 .alive {
@@ -22,5 +20,5 @@ html {
 }
 
 .dead {
-  background-color: white;
+  background-color: rgba(0,0,0,0);
 }
