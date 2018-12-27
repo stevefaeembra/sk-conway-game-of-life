@@ -1,5 +1,5 @@
 let grid = new Array(1000);
-const density = 0.1;
+const density = 0.4;
 let generation = 1;
 
 // rules
