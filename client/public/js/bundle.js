@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("let grid = new Array(1000);\n\nconst randomizeGrid = function() {\n  for (var row=0; row<100; row ++) {\n    for (var col=0; col<100; col++) {\n      const index = (row*100)+col;\n      if (Math.random()>.95) {\n        grid[index] = 1;\n      } else {\n        grid[index] = 0;\n      }\n    }\n  }\n}\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  console.log(\"DOM has loaded\");\n  randomizeGrid();\n  console.dir(grid);\n});\n\n\n//# sourceURL=webpack:///./client/src/app.js?");
+eval("let grid = new Array(1000);\n\nconst randomizeGrid = function() {\n  for (var row=0; row<100; row ++) {\n    for (var col=0; col<100; col++) {\n      const index = (row*100)+col;\n      if (Math.random()>.95) {\n        grid[index] = 1;\n      } else {\n        grid[index] = 0;\n      }\n    }\n  }\n}\n\nconst renderGrid = function() {\n  for (var row=0; row<100; row ++) {\n    for (var col=0; col<100; col++) {\n      const index = (row*100)+col;\n      const div = document.querySelector(`.cell_${index+1}`);\n      if (grid[index]===0) {\n        div.className = 'dead';\n      } else {\n        div.className = 'alive';\n      };\n    };\n  };\n}\n\ndocument.addEventListener('DOMContentLoaded', () => {\n  console.log(\"DOM has loaded\");\n  randomizeGrid();\n  renderGrid();\n});\n\n\n//# sourceURL=webpack:///./client/src/app.js?");
 
 /***/ })
 

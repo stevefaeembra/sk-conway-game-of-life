@@ -8,3 +8,20 @@ html {
   font-size: 16px;
   background-color: wheat;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(100,4px);
+  grid-template-rows: repeat(100,4px);
+  grid-row-gap: 1px;
+  grid-column-gap: 1px;
+  border: 1px solid black;
+}
+
+.alive {
+  background-color: black;
+}
+
+.dead {
+  background-color: white;
+}

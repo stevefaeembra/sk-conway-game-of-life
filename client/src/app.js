@@ -13,8 +13,22 @@ const randomizeGrid = function() {
   }
 }
 
+const renderGrid = function() {
+  for (var row=0; row<100; row ++) {
+    for (var col=0; col<100; col++) {
+      const index = (row*100)+col;
+      const div = document.querySelector(`.cell_${index+1}`);
+      if (grid[index]===0) {
+        div.className = 'dead';
+      } else {
+        div.className = 'alive';
+      };
+    };
+  };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM has loaded");
   randomizeGrid();
-  console.dir(grid);
+  renderGrid();
 });
