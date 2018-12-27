@@ -105,11 +105,23 @@ const renderGrid = function() {
 
 }
 
+const countAliveCells = function(grid) {
+
+  let alive = 0;
+  grid.forEach((cell) => {
+    return alive += cell;
+  });
+  return alive;
+};
+
 const eachGeneration = function (grid) {
   grid = updateGrid(grid);
   generation += 1;
+  const aliveCells = countAliveCells(grid);
   const generationDiv = document.querySelector('#generations');
   generationDiv.innerHTML = `${generation} generations`;
+  const aliveDiv = document.querySelector('#livecells');
+  aliveDiv.innerHTML = `${aliveCells} live cells`;
   return grid;
 }
 
@@ -119,5 +131,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setInterval(function() {
     grid = eachGeneration(grid);
     renderGrid();
-  },50);
+  },60);
 });
