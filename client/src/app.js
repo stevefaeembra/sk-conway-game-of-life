@@ -1,10 +1,12 @@
 let grid = new Array(1000);
+const density = 0.3;
+
 
 const randomizeGrid = function() {
   for (var row=0; row<100; row ++) {
     for (var col=0; col<100; col++) {
       const index = (row*100)+col;
-      if (Math.random()>.95) {
+      if (Math.random()>1.0-density) {
         grid[index] = 1;
       } else {
         grid[index] = 0;
