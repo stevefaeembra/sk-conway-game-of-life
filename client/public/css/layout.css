@@ -10,6 +10,7 @@ html {
 }
 
 .grid {
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(100,4px);
   grid-template-rows: repeat(100,4px);

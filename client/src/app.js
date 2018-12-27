@@ -1,7 +1,11 @@
 let grid = new Array(1000);
 const density = 0.3;
+let generation = 1;
+
+// rules
 const rules = {
   0 : {
+    // dead cells
     0: 0,
     1: 0,
     2: 0,
@@ -13,6 +17,7 @@ const rules = {
     8: 0
   },
   1 : {
+    // live cells
     0: 0,
     1: 0,
     2: 1,
@@ -113,5 +118,5 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("New generarion");
     grid = eachGeneration(grid);
     renderGrid();
-  },500);
+  },50);
 });
