@@ -1,5 +1,5 @@
 let grid = new Array(1000);
-const density = 0.3;
+const density = 0.1;
 let generation = 1;
 
 // rules
@@ -146,5 +146,5 @@ document.addEventListener('DOMContentLoaded', () => {
     grid = eachGeneration(grid);
     renderGrid();
   },60);
-  
+
 });
