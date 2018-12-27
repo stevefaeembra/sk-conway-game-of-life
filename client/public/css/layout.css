@@ -11,19 +11,19 @@ html {
 }
 
 body {
-  width: 400px;
+  width: 500px;
   margin: 1rem auto;
 }
 
 .grid {
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(100,4px);
-  grid-template-rows: repeat(100,4px);
+  grid-template-columns: repeat(100,5px);
+  grid-template-rows: repeat(100,5px);
 }
 
 .alive {
-  background-color: black;
+  background-color: blue;
 }
 
 .dead {
