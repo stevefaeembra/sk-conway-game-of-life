@@ -22,7 +22,7 @@ body {
 }
 
 .alive {
-  background-color: red;
+  background-color: black;
 }
 
 .dead {
@@ -33,4 +33,8 @@ body {
 #livecells
 {
   font-weight: bold;
+}
+
+hr {
+  margin: 1rem 0;
 }
