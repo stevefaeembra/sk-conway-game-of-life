@@ -9,6 +9,11 @@ html {
   background-color: wheat;
 }
 
+body {
+  width: 80%;
+  margin: 0 auto;
+}
+
 .grid {
   margin-top: 1rem;
   display: grid;
