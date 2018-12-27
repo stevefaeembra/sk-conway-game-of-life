@@ -57,7 +57,7 @@ const updateGrid = function(oldGrid) {
 
     for (var col=0; col<100; col++) {
 
-      var left = col===0? 0 : col-1;
+      var left = col===0? 99 : col-1;
       var right = col===99? 0 : col+1;
 
       const index = (row*100)+col;
