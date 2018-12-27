@@ -105,7 +105,10 @@ const renderGrid = function() {
 
 }
 
+
 const countAliveCells = function(grid) {
+
+  // return total number of live cells in given grid
 
   let alive = 0;
   grid.forEach((cell) => {
@@ -114,7 +117,11 @@ const countAliveCells = function(grid) {
   return alive;
 };
 
+
 const eachGeneration = function (grid) {
+
+  // do a generation
+
   grid = updateGrid(grid);
   generation += 1;
   const aliveCells = countAliveCells(grid);
@@ -125,11 +132,19 @@ const eachGeneration = function (grid) {
   return grid;
 }
 
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  // main loop
+
   console.log("DOM has loaded");
   randomizeGrid();
+
+  // call eachGeneration on a regular schedule
+
   setInterval(function() {
     grid = eachGeneration(grid);
     renderGrid();
   },60);
+  
 });
