@@ -1,6 +1,29 @@
 let grid = new Array(1000);
 const density = 0.3;
-
+const rules = {
+  0 : {
+    0: 0,
+    1: 0,
+    2: 0,
+    3: 1,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0
+  },
+  1 : {
+    0: 0,
+    1: 0,
+    2: 1,
+    3: 1,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0
+  }
+};
 
 const randomizeGrid = function() {
   for (var row=0; row<100; row ++) {
@@ -13,6 +36,46 @@ const randomizeGrid = function() {
       }
     }
   }
+};
+
+const updateGrid = function() {
+
+  // apply game rules. We do this into a clone of the previous state of the world
+
+  let newGrid = grid.slice(0); // clone
+
+  for (var row=0; row<100; row ++) {
+
+    var up = row===0? 99 : row - 1;
+    var down = row===99? 0 : row + 1;
+
+    for (var col=0; col<100; col++) {
+
+      var left = col===0? 99 : col-1;
+      var right = col===0? 99 : col-1;
+
+      const index = (row*100)+col;
+
+      const neighbours = [
+        grid[(up*100)+left],
+        grid[(up*100)+col],
+        grid[(up*100)+right],
+        grid[(row*100)+left],
+        grid[(row*100)+right],
+        grid[(down*100)+left],
+        grid[(down*100)+col],
+        grid[(down*100)+right]
+      ];
+
+      let aliveNeighbours = 0;
+      neighbours.forEach((neighbour) => aliveNeighbours += neighbour);
+
+      // use lookup table
+      newGrid[index] = rules[grid[index]][aliveNeighbours];
+
+    }
+  }
+  grid = newGrid;
 }
 
 const renderGrid = function() {
@@ -39,6 +102,7 @@ const renderGrid = function() {
 document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM has loaded");
   randomizeGrid();
+  updateGrid();
   renderGrid().then((done) => {
     console.log("Grid refreshed!");
   });

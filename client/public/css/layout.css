@@ -15,7 +15,6 @@ html {
   grid-template-rows: repeat(100,4px);
   grid-row-gap: 1px;
   grid-column-gap: 1px;
-  border: 1px solid black;
 }
 
 .alive {
