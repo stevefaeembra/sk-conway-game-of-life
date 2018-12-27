@@ -106,7 +106,6 @@ const renderGrid = function() {
 }
 
 const eachGeneration = function (grid) {
-  console.log("In eachGeneration()");
   grid = updateGrid(grid);
   return grid;
 }
@@ -115,7 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log("DOM has loaded");
   randomizeGrid();
   setInterval(function() {
-    console.log("New generarion");
     grid = eachGeneration(grid);
     renderGrid();
   },50);
